@@ -21,6 +21,7 @@ class TaskController extends Controller
 
         return response()->json([
             'tasks' => $tasks->items(),
+            'per_page' => $perPage,
             'total' => $tasks->total(),
             'current_page' => $tasks->currentPage(),
             'last_page' => $tasks->lastPage(),
@@ -64,6 +65,7 @@ class TaskController extends Controller
                 return response()->json([
                     'tasks' => [],
                     'total' => 0,
+                    'per_page' => 0,
                     'current_page' => 1,
                     'last_page' => 1,
                 ], 200);
@@ -82,6 +84,7 @@ class TaskController extends Controller
 
             return response()->json([
                 'tasks' => $tasks->items(),
+                'per_page' => $perPage,
                 'total' => $tasks->total(),
                 'current_page' => $tasks->currentPage(),
                 'last_page' => $tasks->lastPage(),

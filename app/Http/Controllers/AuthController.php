@@ -54,10 +54,11 @@ class AuthController extends Controller
                 'message' => 'Unauthorized',
             ], 401);
         }
+        $user = auth()->user()->only(['name', 'avatar', 'email', 'username']);
         return response()->json([
             'message' => 'Login successful',
             'token' => $token,
-            'user' => auth()->user(),
+            'user' => $user,
         ]);
     }
 }
